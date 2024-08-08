@@ -66,7 +66,7 @@ class SystemContext implements Context
     public function commandShouldSucceed(): void
     {
         if (0 !== $this->lastReturnCode) {
-            throw new \Exception(sprintf('Command should succeed %b', $this->lastReturnCode));
+            throw new \Exception(\sprintf('Command should succeed %b', $this->lastReturnCode));
         }
     }
 
@@ -78,7 +78,7 @@ class SystemContext implements Context
     public function commandShouldFail(): void
     {
         if (0 === $this->lastReturnCode) {
-            throw new \Exception(sprintf('Command should fail %b', $this->lastReturnCode));
+            throw new \Exception(\sprintf('Command should fail %b', $this->lastReturnCode));
         }
     }
 
@@ -90,7 +90,7 @@ class SystemContext implements Context
     public function commandShouldLastLessThan($seconds): void
     {
         if ($this->lastExecutionTime > $seconds) {
-            throw new \Exception(sprintf('Last command last %s which is more than %s seconds', $this->lastExecutionTime, $seconds));
+            throw new \Exception(\sprintf('Last command last %s which is more than %s seconds', $this->lastExecutionTime, $seconds));
         }
     }
 
@@ -102,7 +102,7 @@ class SystemContext implements Context
     public function commandShouldMoreLessThan($seconds): void
     {
         if ($this->lastExecutionTime < $seconds) {
-            throw new \Exception(sprintf('Last command last %s which is less than %s seconds', $this->lastExecutionTime, $seconds));
+            throw new \Exception(\sprintf('Last command last %s which is less than %s seconds', $this->lastExecutionTime, $seconds));
         }
     }
 
@@ -124,7 +124,7 @@ class SystemContext implements Context
         }
 
         if (false === $check) {
-            throw new \Exception(sprintf("The text '%s' was not found anywhere on output of command.\n%s", $text, implode("\n", $this->output)));
+            throw new \Exception(\sprintf("The text '%s' was not found anywhere on output of command.\n%s", $text, implode("\n", $this->output)));
         }
     }
 
@@ -139,7 +139,7 @@ class SystemContext implements Context
 
         foreach ($this->output as $line) {
             if (1 === preg_match($regex, $line)) {
-                throw new \Exception(sprintf("The text '%s' was found somewhere on output of command.\n%s", $text, implode("\n", $this->output)));
+                throw new \Exception(\sprintf("The text '%s' was found somewhere on output of command.\n%s", $text, implode("\n", $this->output)));
             }
         }
     }
@@ -152,7 +152,7 @@ class SystemContext implements Context
         $expected = $string->getStrings();
         foreach ($this->output as $index => $line) {
             if ($line !== $expected[$index]) {
-                throw new \Exception(sprintf("instead of\n%s", implode("\n", $this->output)));
+                throw new \Exception(\sprintf("instead of\n%s", implode("\n", $this->output)));
             }
         }
     }

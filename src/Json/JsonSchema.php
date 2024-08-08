@@ -34,7 +34,7 @@ class JsonSchema extends Json
         if (!$validator->isValid()) {
             $msg = 'JSON does not validate. Violations:'.\PHP_EOL;
             foreach ($validator->getErrors() as $error) {
-                $msg .= sprintf('  - [%s] %s'.\PHP_EOL, $error['property'], $error['message']);
+                $msg .= \sprintf('  - [%s] %s'.\PHP_EOL, $error['property'], $error['message']);
             }
             throw new \Exception($msg);
         }
