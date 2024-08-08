@@ -55,7 +55,7 @@ class JsonContext extends BaseContext
         $actual = $this->inspector->evaluate($json, $node);
 
         if ($actual != $expected) {
-            throw new \Exception(sprintf("The node '%s' value is '%s', '%s' expected", $node, json_encode($actual), $expected));
+            throw new \Exception(\sprintf("The node '%s' value is '%s', '%s' expected", $node, json_encode($actual), $expected));
         }
     }
 
@@ -75,7 +75,7 @@ class JsonContext extends BaseContext
             $expected = self::reespaceSpecialGherkinValue($expected);
 
             if ($actual != $expected) {
-                $errors[] = sprintf("The node '%s' value is '%s', '%s' expected", $node, json_encode($actual), $expected);
+                $errors[] = \sprintf("The node '%s' value is '%s', '%s' expected", $node, json_encode($actual), $expected);
             }
         }
 
@@ -96,7 +96,7 @@ class JsonContext extends BaseContext
         $actual = $this->inspector->evaluate($json, $node);
 
         if (0 === preg_match($pattern, $actual)) {
-            throw new \Exception(sprintf("The node '%s' value is '%s', '%s' pattern expected", $node, json_encode($actual), $pattern));
+            throw new \Exception(\sprintf("The node '%s' value is '%s', '%s' pattern expected", $node, json_encode($actual), $pattern));
         }
     }
 
@@ -112,7 +112,7 @@ class JsonContext extends BaseContext
         $actual = $this->inspector->evaluate($json, $node);
 
         if (null !== $actual) {
-            throw new \Exception(sprintf("The node '%s' value is '%s', null expected", $node, json_encode($actual)));
+            throw new \Exception(\sprintf("The node '%s' value is '%s', null expected", $node, json_encode($actual)));
         }
     }
 
@@ -128,7 +128,7 @@ class JsonContext extends BaseContext
         $actual = $this->inspector->evaluate($json, $node);
 
         if (null === $actual) {
-            throw new \Exception(sprintf("The node '%s' value is null, non-null value expected", $node));
+            throw new \Exception(\sprintf("The node '%s' value is null, non-null value expected", $node));
         }
     }
 
@@ -144,7 +144,7 @@ class JsonContext extends BaseContext
         $actual = $this->inspector->evaluate($json, $node);
 
         if (true !== $actual) {
-            throw new \Exception(sprintf("The node '%s' value is '%s', 'true' expected", $node, json_encode($actual)));
+            throw new \Exception(\sprintf("The node '%s' value is '%s', 'true' expected", $node, json_encode($actual)));
         }
     }
 
@@ -160,7 +160,7 @@ class JsonContext extends BaseContext
         $actual = $this->inspector->evaluate($json, $node);
 
         if (false !== $actual) {
-            throw new \Exception(sprintf("The node '%s' value is '%s', 'false' expected", $node, json_encode($actual)));
+            throw new \Exception(\sprintf("The node '%s' value is '%s', 'false' expected", $node, json_encode($actual)));
         }
     }
 
@@ -176,7 +176,7 @@ class JsonContext extends BaseContext
         $actual = $this->inspector->evaluate($json, $node);
 
         if ($actual !== $expected) {
-            throw new \Exception(sprintf("The node '%s' value is '%s', string '%s' expected", $node, json_encode($actual), $expected));
+            throw new \Exception(\sprintf("The node '%s' value is '%s', string '%s' expected", $node, json_encode($actual), $expected));
         }
     }
 
@@ -192,7 +192,7 @@ class JsonContext extends BaseContext
         $actual = $this->inspector->evaluate($json, $node);
 
         if ($actual !== (float) $number && $actual !== (int) $number) {
-            throw new \Exception(sprintf("The node '%s' value is '%s', number '%s' expected", $node, json_encode($actual), (string) $number));
+            throw new \Exception(\sprintf("The node '%s' value is '%s', number '%s' expected", $node, json_encode($actual), (string) $number));
         }
     }
 

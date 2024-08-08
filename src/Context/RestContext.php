@@ -130,7 +130,7 @@ class RestContext extends BaseContext
     public function theHeaderShouldBeContains($name, $value): void
     {
         @trigger_error(
-            sprintf('The %s function is deprecated since version 3.1 and will be removed in 4.0. Use the %s::theHeaderShouldContain function instead.', __METHOD__, __CLASS__),
+            \sprintf('The %s function is deprecated since version 3.1 and will be removed in 4.0. Use the %s::theHeaderShouldContain function instead.', __METHOD__, __CLASS__),
             \E_USER_DEPRECATED
         );
         $this->theHeaderShouldContain($name, $value);
@@ -216,7 +216,7 @@ class RestContext extends BaseContext
         $expires = new \DateTime($this->request->getHttpRawHeader('Expires')[0]);
 
         $this->assertSame(1, $expires->diff($date)->invert,
-            sprintf('The response doesn\'t expire in the future (%s)', $expires->format(\DATE_ATOM))
+            \sprintf('The response doesn\'t expire in the future (%s)', $expires->format(\DATE_ATOM))
         );
     }
 

@@ -47,7 +47,7 @@ trait Asserter
     {
         $this->assert(
             (int) $expected === \count($elements),
-            $message ?: sprintf('%d elements found, but should be %d.', \count($elements), $expected)
+            $message ?: \sprintf('%d elements found, but should be %d.', \count($elements), $expected)
         );
     }
 
