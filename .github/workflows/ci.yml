@@ -24,7 +24,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -50,7 +50,7 @@ jobs:
        APP_DEBUG: '1' # https://github.com/phpstan/phpstan-symfony/issues/37
      steps:
        - name: Checkout
-         uses: actions/checkout@v4
+         uses: actions/checkout@v6
        - name: Setup PHP
          uses: shivammathur/setup-php@v2
          with:
@@ -95,7 +95,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -132,7 +132,7 @@ jobs:
     env:
       DISPLAY: ':99'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
