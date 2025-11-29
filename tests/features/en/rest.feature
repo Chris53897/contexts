@@ -1,3 +1,4 @@
+# language: en
 @rest
 Feature: Testing RESTContext
 
@@ -100,7 +101,7 @@ Feature: Testing RESTContext
 
     Scenario: Accept header should not be set by dfault
       When I send a GET request to "/rest/index.php"
-      Then I should not see "HTTP_ACCEPT"
+      Then I should not see "HTTP_ACCEPT :"
 
   @>php5.5
     Scenario: Set content headers in POST request
